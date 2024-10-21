@@ -1,24 +1,55 @@
-# README
+# Start the app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 1. Download the repo
 
-Things you may want to cover:
+## 2. Install all packages
+Example:
+```
+# if you don't have already ruby 3.3.5, install it
+rvm install 3.3.5
+# create gemset, if already created skip this
+rvm gemset create project_comments
+# use gemset
+rvm gemset use project_comments
+# install gems
+bundle install
+```
 
-* Ruby version
+## 3. Run the project
 
-* System dependencies
+```
+rails s
+```
+Now you can access the website through:
+```
+localhost:3000
+```
 
-* Configuration
+# Possible questions before project
 
-* Database creation
+## 1. What are the tools (deployment server, database) ?
 
-* Database initialization
+Let's say heroku + PostgreSQL.
 
-* How to run the test suite
+## 2. Only projects will have comments ? Can we comment comments ?
 
-* Services (job queues, cache servers, search engines, etc.)
+For now we can only add comments for project, but we should make it extendable.
 
-* Deployment instructions
+## 3. Should we paginate comments? What is the number of comments ?
 
-* ...
+For now let's don't do this.
+
+## 4. Do we want some admin panel?
+
+Not needed for now.
+
+## 5. How people will create project ? Do they need to sign up ?
+
+It will just be a form they need to fill, without signing up. They provide something like username, project name, start date and end date.
+
+## 6. When we already know what project need to have in terms of fields/data, what should have comment ?
+
+Comment need just username and text.
+
+
+
