@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
   def show
     # avoid N+1 queries by eager loading comments
+    # in this case it doesn't make much sense. It would if we were displaying all projects with their comments
     @project = Project.includes(:comments).find(params[:id])
   end
 
