@@ -66,4 +66,36 @@ Comment need just username and text.
 Project need to have status, let's say for now it will have only: new, pending, cancelled, finished. For now let's just do a dropdown in a form, we don't need state machine.
 
 
+# What could go better - what to improve
+
+Generally we could improve a lot but that would require spending a lot more time on the project. I will list few things that comes to my mind.
+
+1. Comments routes
+Was thinking to make a general controller for comments but as you can see I had to put a lot of params in link which is not great.
+It would be better to create controller like:
+```
+class Projects::CommentsController
+```
+
+and in routes do something like:
+```
+resources :project do
+  resources :comment
+end
+```
+which would generate a link like: projects/:project_id/comments
+
+2. Use form object
+In this basic example I think it's not worth to use it, permitted parameters are enough. Probably we could have currently some problems like comment belongs to
+a project, but when passing correct arguments we can move the comment from one project to another.
+
+3. Add some tracing of Project status change.
+When we change status for object, we could add a comment saying that status was changed. To do that we could add a field like "editable", and make it "true"
+by default. For status change this field would be false.
+
+4. Add feature tests (integration)
+We could add some feature tests about basic scenarios like:
+- creating, updating and them removing a project
+- adding, editing and removing a comment etc.
+
 
