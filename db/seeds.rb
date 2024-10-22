@@ -1,10 +1,18 @@
-# This file will generate some random data for the database. This is useful for testing purposes.
-
-require 'factory_bot_rails'
-require 'faker'
+require 'securerandom'
 
 25.times do
-  project = FactoryBot.create(:project)
+  project = Project.create(
+    author: "Seed",
+    name: "Project #{SecureRandom.hex(4)}",
+    start_date: Time.current,
+    end_date: Time.current + 1.month
+  )
 
-  5.times { FactoryBot.create(:comment, commentable: project) }
+  5.times do
+    Comment.create(
+      author: "Seed",
+      body: "Comment #{SecureRandom.hex(4)}",
+      commentable: project
+    )
+  end
 end
