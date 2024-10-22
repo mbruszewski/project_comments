@@ -18,6 +18,12 @@ rvm gemset use project_comments
 # install gems
 bundle install
 ```
+## 3. Create db, migrations and run seed
+db:prepare by default creates database, run migrations and run seeds if we don't have anything initialized
+to ensure we run seeds we added db:seed after db:prepare
+```
+rails db:prepare db:seed
+```
 
 ## 3. Run the project
 
