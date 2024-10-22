@@ -98,4 +98,4 @@ We could add some feature tests about basic scenarios like:
 - creating, updating and them removing a project
 - adding, editing and removing a comment etc.
 
-
+5. Often for a project it's worth to add gems like rubocop
