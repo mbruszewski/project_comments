@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update, :destroy]
 
   def new
-    @comment = Comment.new
+    @comment = Comment.new(comment_params)
   end
 
   def create
@@ -16,14 +16,13 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    render :new
   end
 
   def update
     if @comment.update(comment_params)
       redirect_to @comment.commentable, notice: 'Comment was successfully updated.'
     else
-      render :new
+      render :edit
     end
   end
 

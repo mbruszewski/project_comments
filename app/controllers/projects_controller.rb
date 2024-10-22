@@ -1,11 +1,13 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:edit, :update, :destroy]
 
   def index
     @projects = Project.all
   end
 
   def show
+    # avoid N+1 queries by eager loading comments
+    @project = Project.includes(:comments).find(params[:id])
   end
 
   def new
@@ -45,6 +47,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:author, :name, :description)
+    params.require(:project).permit(:author, :name, :status, :start_date, :end_date)
   end
 end

@@ -6,7 +6,7 @@ RSpec.describe CommentsController, type: :request do
 
   describe "GET /new" do
     it "returns http success" do
-      get new_comment_path
+      get new_comment_path(comment: { commentable_id: project.id, commentable_type: "Project" })
       expect(response).to have_http_status(:success)
     end
   end
