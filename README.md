@@ -1,3 +1,7 @@
+# General info
+
+App contains basic project management solution which allows users adding comments to a project. For each project we can add comments and edit it.
+
 # Start the app
 
 ## 1. Download the repo
@@ -29,7 +33,7 @@ localhost:3000
 
 ## 1. What are the tools (deployment server, database) ?
 
-Let's say heroku + PostgreSQL.
+Let's say heroku + PostgreSQL for later. For local changes we can use sqlite.
 
 ## 2. Only projects will have comments ? Can we comment comments ?
 
@@ -50,6 +54,10 @@ It will just be a form they need to fill, without signing up. They provide somet
 ## 6. When we already know what project need to have in terms of fields/data, what should have comment ?
 
 Comment need just username and text.
+
+## 7. Does project need to have status? How to we manage statuses (state machine or just a list) ?
+
+Project need to have status, let's say for now it will have only: new, pending, cancelled, finished. For now let's just do a dropdown in a form, we don't need state machine.
 
 
 

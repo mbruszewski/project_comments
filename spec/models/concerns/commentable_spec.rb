@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "Commentable" do
-  # Use migrations within tests to create fake tables if needed
   before(:all) do
     ActiveRecord::Schema.define do
       create_table :fake_models, force: true do |t|
